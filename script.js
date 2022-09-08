@@ -7,11 +7,18 @@ function getComputerChoice(){
     return rspArr[randNum - 1];    
 };
 
-let computerSelection = getComputerChoice();
+function getPlayerChoice(){
+    let playerChoice = prompt();
+    let playerChoiceLower = playerChoice.toLowerCase();
+    
+    if(playerChoiceLower === 'rock' || playerChoiceLower === 'paper' || playerChoiceLower === 'scissor'){
+        return playerChoice;
+    } else {
+        alert("Enter correct Input!");
+    }  
+};
 
-let playerSelection = prompt();
-
-function declareWinner(computerSelection, playerSelection){
+function playRound(computerSelection, playerSelection){
     let computerSelectionLower = computerSelection.toLowerCase();
     let playerSelectionLower = playerSelection.toLowerCase();
     if(computerSelectionLower == playerSelectionLower){
@@ -37,6 +44,10 @@ function declareWinner(computerSelection, playerSelection){
     }
 }
 
+let computerSelection = getComputerChoice();
+
+let playerSelection = getPlayerChoice();
+
 console.log(computerSelection);
 console.log(playerSelection);
-console.log(declareWinner(computerSelection, playerSelection));
+console.log(playRound(computerSelection, playerSelection));
