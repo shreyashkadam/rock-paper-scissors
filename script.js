@@ -7,5 +7,4 @@ function getComputerChoice(){
     return rspArr[randNum - 1];    
 };
 
-let computerChoice = getComputerChoice();
-console.log(computerChoice);
+let computerSelection = getComputerChoice();
