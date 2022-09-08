@@ -29,26 +29,26 @@ function playRound(computerSelection, playerSelection) {
         return "Draw! No one wins";
     } else if (computerSelectionLower == 'rock') {
         if (playerSelectionLower == 'paper') {
-            playerCount ++;
+            playerCount++;
             return "You Win! Paper beats Rock";
         } else if (playerSelectionLower == 'scissor') {
-            computerCount ++;
+            computerCount++;
             return "You Lose! Rock beats Scissor";
         }
     } else if (computerSelectionLower == 'paper') {
         if (playerSelectionLower == 'rock') {
-            computerCount ++;
+            computerCount++;
             return "You Lose! Paper beats Rock";
         } else if (playerSelectionLower == 'scissor') {
-            playerCount ++;
+            playerCount++;
             return "You Win! Scissor beats Paper";
         }
     } else if (computerSelectionLower == 'scissor') {
         if (playerSelectionLower == 'rock') {
-            playerCount ++;
+            playerCount++;
             return "You Win! Rock beats Scissor";
         } else if (playerSelectionLower == 'paper') {
-            computerCount ++;
+            computerCount++;
             return "You Lose! Scissor beats Paper";
         }
     }
@@ -61,11 +61,11 @@ function game() {
         console.log(playRound(computerSelection, playerSelection));
     }
 
-    if(playerCount > computerCount){
+    if (playerCount > computerCount) {
         console.log("Congrats! You Win The rounds")
-    } else if( playerCount < computerCount){
+    } else if (playerCount < computerCount) {
         console.log("Bad Luck...You Lose The Rounds")
-    } else{
+    } else {
         console.log("Draw! Try Again")
     }
 }
