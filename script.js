@@ -1,8 +1,20 @@
-const rspArr = ['Rock', 'Paper', 'Scissor'];
-let playerCount = 0;
-let computerCount = 0;
-let computerSelection = null;
-let playerSelection = null;
+const rspArr = ['rock', 'paper', 'scissor'];
+
+let rock = document.getElementById('rock-btn');
+let paper = document.getElementById('paper-btn');
+let scissor = document.getElementById('scissor-btn');
+
+
+rock.addEventListener('click', () => {
+    playRound('rock');
+});
+paper.addEventListener('click', () => {
+    playRound('paper');
+});
+scissor.addEventListener('click', () => {
+    playRound('scissor');
+});
+
 
 function getComputerChoice() {
     // algorithm to find random whole number 
@@ -11,64 +23,28 @@ function getComputerChoice() {
     return rspArr[randNum - 1];
 };
 
-function getPlayerChoice() {
-    let playerChoice = prompt();
-    let playerChoiceLower = playerChoice.toLowerCase();
+function playRound(playerSelection) {
+    let computerSelection = getComputerChoice();
 
-    if (playerChoiceLower === 'rock' || playerChoiceLower === 'paper' || playerChoiceLower === 'scissor') {
-        return playerChoice;
-    } else {
-        alert("Enter correct Input!");
-    }
-};
-
-function playRound(computerSelection, playerSelection) {
-    let computerSelectionLower = computerSelection.toLowerCase();
-    let playerSelectionLower = playerSelection.toLowerCase();
-    if (computerSelectionLower == playerSelectionLower) {
-        return "Draw! No one wins";
-    } else if (computerSelectionLower == 'rock') {
-        if (playerSelectionLower == 'paper') {
-            playerCount++;
-            return "You Win! Paper beats Rock";
-        } else if (playerSelectionLower == 'scissor') {
-            computerCount++;
-            return "You Lose! Rock beats Scissor";
+    if (computerSelection == playerSelection) {
+        console.log("Draw! No one wins");
+    } else if (computerSelection == 'rock') {
+        if (playerSelection == 'paper') {
+            console.log("You Win! Paper beats Rock");
+        } else if (playerSelection == 'scissor') {
+            console.log("You Lose! Rock beats Scissor");
         }
-    } else if (computerSelectionLower == 'paper') {
-        if (playerSelectionLower == 'rock') {
-            computerCount++;
-            return "You Lose! Paper beats Rock";
-        } else if (playerSelectionLower == 'scissor') {
-            playerCount++;
-            return "You Win! Scissor beats Paper";
+    } else if (computerSelection == 'paper') {
+        if (playerSelection == 'rock') {
+            console.log("You Lose! Paper beats Rock");
+        } else if (playerSelection == 'scissor') {
+            console.log("You Win! Scissor beats Paper");
         }
-    } else if (computerSelectionLower == 'scissor') {
-        if (playerSelectionLower == 'rock') {
-            playerCount++;
-            return "You Win! Rock beats Scissor";
-        } else if (playerSelectionLower == 'paper') {
-            computerCount++;
-            return "You Lose! Scissor beats Paper";
+    } else if (computerSelection == 'scissor') {
+        if (playerSelection == 'rock') {
+            console.log("You Win! Rock beats Scissor");
+        } else if (playerSelection == 'paper') {
+            console.log("You Lose! Scissor beats Paper");
         }
     }
 }
-
-function game() {
-    for (let i = 0; i < 5; i++) {
-        computerSelection = getComputerChoice();
-        playerSelection = getPlayerChoice();
-        console.log(playRound(computerSelection, playerSelection));
-    }
-
-    if (playerCount > computerCount) {
-        console.log("Congrats! You Win The rounds")
-    } else if (playerCount < computerCount) {
-        console.log("Bad Luck...You Lose The Rounds")
-    } else {
-        console.log("Draw! Try Again")
-    }
-}
-
-game();
-
