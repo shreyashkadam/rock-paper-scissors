@@ -1,18 +1,26 @@
 const rspArr = ['rock', 'paper', 'scissor'];
 
-let rock = document.getElementById('rock-btn');
-let paper = document.getElementById('paper-btn');
-let scissor = document.getElementById('scissor-btn');
+const rock = document.getElementById('rock-btn');
+const paper = document.getElementById('paper-btn');
+const scissor = document.getElementById('scissor-btn');
+
+const container = document.querySelector('.container');
+
+const newDiv = document.createElement('div');
+newDiv.classList.add('new-div');
 
 
 rock.addEventListener('click', () => {
-    playRound('rock');
+    newDiv.textContent = playRound('rock');
+    container.appendChild(newDiv);
 });
 paper.addEventListener('click', () => {
-    playRound('paper');
+    newDiv.textContent = playRound('paper');
+    container.appendChild(newDiv);
 });
 scissor.addEventListener('click', () => {
-    playRound('scissor');
+    newDiv.textContent = playRound('scissor');
+    container.appendChild(newDiv);
 });
 
 
@@ -27,24 +35,24 @@ function playRound(playerSelection) {
     let computerSelection = getComputerChoice();
 
     if (computerSelection == playerSelection) {
-        console.log("Draw! No one wins");
+        return("Draw! No one wins");
     } else if (computerSelection == 'rock') {
         if (playerSelection == 'paper') {
-            console.log("You Win! Paper beats Rock");
+            return("You Win! Paper beats Rock");
         } else if (playerSelection == 'scissor') {
-            console.log("You Lose! Rock beats Scissor");
+            return("You Lose! Rock beats Scissor");
         }
     } else if (computerSelection == 'paper') {
         if (playerSelection == 'rock') {
-            console.log("You Lose! Paper beats Rock");
+            return("You Lose! Paper beats Rock");
         } else if (playerSelection == 'scissor') {
-            console.log("You Win! Scissor beats Paper");
+            return("You Win! Scissor beats Paper");
         }
     } else if (computerSelection == 'scissor') {
         if (playerSelection == 'rock') {
-            console.log("You Win! Rock beats Scissor");
+            return("You Win! Rock beats Scissor");
         } else if (playerSelection == 'paper') {
-            console.log("You Lose! Scissor beats Paper");
+            return("You Lose! Scissor beats Paper");
         }
     }
 }
