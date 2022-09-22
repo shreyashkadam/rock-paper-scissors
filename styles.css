@@ -1,0 +1,57 @@
+body { 
+    min-height: 100vh; 
+    display: flex;
+    flex-direction: column;
+    background-color: #191919;
+}
+
+.header{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ECDBBA;
+    font-weight: 700;
+    font-size: 20px;
+    padding: 40px;
+}
+
+.main{
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.rps-buttons{
+    display: flex;
+    justify-content: center;
+    
+}
+
+.result-containers{
+    min-width: 250px;
+    min-height: 145px;
+    border: #ECDBBA solid 3px;
+    color: #ECDBBA;
+    padding: 5px;
+    margin: 40px;
+    display: flex;
+    flex-direction: column;
+}
+
+.btn{
+    width: 100px;
+    height: 100px;
+    background-color: #C84B31;
+    color: #ECDBBA;
+    font-weight: 700;
+    font-size: 20px;
+    margin: 50px;
+    border-radius: 10px;
+}
+
+#refresh{
+    font-size: 15px;
+    padding: 10px;
+}
+
